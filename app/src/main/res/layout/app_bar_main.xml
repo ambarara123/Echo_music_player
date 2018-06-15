@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
-
+    tools:context=".MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/app_bar">
+        android:id="@+id/appbar_layout">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -24,12 +23,14 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/detail_fragment"
-            android:layout_below="@+id/app_bar"
-            class="com.android.echo.fragments.MainFragment"/>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/detail_fragment"
+        android:layout_below="@+id/appbar_layout"
+        class="com.android.echo.fragments.MainFragment"
+        />
 
     </RelativeLayout>
 
