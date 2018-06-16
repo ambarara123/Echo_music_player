@@ -16,7 +16,8 @@ import com.android.echo.fragments.FavourateFragment
 import com.android.echo.fragments.MainFragment
 import com.android.echo.fragments.SettingFragment
 
-class RecyclerAdapter(contentList :ArrayList<String>,getImage :IntArray, context :Context) :RecyclerView.Adapter<RecyclerAdapter.NavViewHolder>(){
+class RecyclerAdapter(contentList: ArrayList<String>, getImage: IntArray, context: Context) : RecyclerView.Adapter<RecyclerAdapter.NavViewHolder>() {
+
 
     var contentList:ArrayList<String>?=null
     var getImage :IntArray?=null
