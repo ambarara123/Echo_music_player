@@ -1,15 +1,17 @@
 package com.android.echo.adapters
 
 import android.content.Context
+import android.os.Bundle
+import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import com.android.echo.R
 import com.android.echo.Songs
+import com.android.echo.fragments.SongPlayingFragment
 
 class MainScreenAdapter(_songDetail: ArrayList<Songs>, _context: Context) : RecyclerView.Adapter<MainScreenAdapter.MyViewHolder>() {
     var arrayList: ArrayList<Songs>? = null
@@ -39,13 +41,27 @@ class MainScreenAdapter(_songDetail: ArrayList<Songs>, _context: Context) : Recy
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val songObject = arrayList?.get(position)
+        var songObject = arrayList?.get(position)
 
         holder.trackTitle?.text = songObject?.songTitle
         holder.trackArtist?.text = songObject?.artist
 
         holder.contentHolder?.setOnClickListener({
-            Toast.makeText(context, "Hey " + songObject?.songTitle, Toast.LENGTH_SHORT).show()
+
+            val songPlayingFragment = SongPlayingFragment()
+            var args = Bundle()
+            args.putString("songArtist", songObject?.artist)
+            args.putString("path", songObject?.songData)
+            args.putString("songTitle", songObject?.songTitle)
+            args.putInt("songId", songObject?.songID?.toInt() as Int)
+            args.putInt("position", position)
+            args.putParcelableArrayList("songData", arrayList)
+            songPlayingFragment.arguments = args
+            (context as FragmentActivity).supportFragmentManager.beginTransaction()
+                    .replace(R.id.detail_fragment, songPlayingFragment)
+                    .commit()
+
+
         })
 
     }
@@ -62,6 +78,5 @@ class MainScreenAdapter(_songDetail: ArrayList<Songs>, _context: Context) : Recy
         }
 
     }
-
 
 }

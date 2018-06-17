@@ -14,79 +14,143 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="#9d2a58">
+        android:background="#9d2a58"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <RelativeLayout
+                android:id="@+id/infoSongs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/infoSongs">
+                android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/songPlaying"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/songPlaying"
+                    android:layout_centerHorizontal="true"
+                    android:ellipsize="marquee"
+                    android:padding="5dp"
+                    android:singleLine="true"
                     android:text="Lollypop Lagelu"
                     android:textColor="#ffffff"
-                    android:layout_centerHorizontal="true"
-                    android:textStyle="bold"
-                    android:padding="5dp"
                     android:textSize="21sp"
-                    android:ellipsize="marquee"
-                    android:singleLine="true" />
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/songArtist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/songArtist"
-                    android:text="Pawan Singh"
                     android:layout_below="@+id/songPlaying"
-                    android:textColor="#eeeeee"
                     android:layout_centerHorizontal="true"
-                    android:textSize="15sp"
                     android:ellipsize="marquee"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="Pawan Singh"
+                    android:textColor="#eeeeee"
+                    android:textSize="15sp" />
 
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/seekbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/infoSongs">
+
+                <SeekBar
+                    android:id="@+id/seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/startTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/seekbar"
+                    android:layout_marginLeft="15dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/endTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/seekbar"
+                    android:layout_marginRight="15dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/seekbarLayout"
-                android:layout_below="@id/infoSongs">
+                android:id="@+id/controlPanel"
+                android:layout_below="@+id/seekbarLayout"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="60dp"
+                android:layout_marginTop="25dp"
+                android:layout_centerVertical="true">
 
-                <SeekBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/seekbar"
-                    android:layout_centerHorizontal="true" />
+                <ImageButton
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/playButton"
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:background="@drawable/play_icon" />
 
-                <TextView
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/startTime"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/seekbar"
-                    android:layout_marginLeft="15dp"
-                    android:textColor="#ffffff"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:id="@+id/previousButton"
+                    android:layout_toLeftOf="@+id/playButton"
+                    android:background="@drawable/play_previous_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp" />
 
-                <TextView
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/endTime"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/seekbar"
-                    android:layout_marginRight="15dp"
-                    android:textColor="#ffffff"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:id="@+id/nextButton"
+                    android:layout_toRightOf="@+id/playButton"
+                    android:background="@drawable/play_next_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/loopButton"
+                    android:layout_toRightOf="@+id/nextButton"
+                    android:background="@drawable/loop_white_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/shuffleButton"
+                    android:layout_toLeftOf="@+id/previousButton"
+                    android:background="@drawable/shuffle_white_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp" />
             </RelativeLayout>
 
         </RelativeLayout>
-
     </LinearLayout>
 </LinearLayout>
