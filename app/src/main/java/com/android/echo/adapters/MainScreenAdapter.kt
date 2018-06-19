@@ -40,6 +40,7 @@ class MainScreenAdapter(_songDetail: ArrayList<Songs>, _context: Context) : Recy
 
     }
 
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         var songObject = arrayList?.get(position)
 
@@ -60,7 +61,6 @@ class MainScreenAdapter(_songDetail: ArrayList<Songs>, _context: Context) : Recy
             (context as FragmentActivity).supportFragmentManager.beginTransaction()
                     .replace(R.id.detail_fragment, songPlayingFragment)
                     .commit()
-
 
         })
 
