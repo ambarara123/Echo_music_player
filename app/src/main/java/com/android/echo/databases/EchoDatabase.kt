@@ -24,8 +24,13 @@ class EchoDatabase : SQLiteOpenHelper {
 
     override fun onCreate(database: SQLiteDatabase?) {
 
-        database?.execSQL("CREATE TABLE " + Staticated.TABLE_NAME + "( " + Staticated.COLUMN_ID + " INTEGER," + Staticated.COLUMN_SONG_ARTIST + " STRING," +
-                Staticated.COLUMN_SONG_TITLE + " STRING," + Staticated.COLUMN_SONG_PATH + " STRING);")
+        try {
+            database?.execSQL("CREATE TABLE " + Staticated.TABLE_NAME + "(" + Staticated.COLUMN_ID + " INTEGER," + Staticated.COLUMN_SONG_ARTIST + " STRING," +
+                    Staticated.COLUMN_SONG_TITLE + " STRING," + Staticated.COLUMN_SONG_PATH + " STRING);")
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
 
     }
@@ -88,7 +93,7 @@ class EchoDatabase : SQLiteOpenHelper {
     fun checkIfIdExist(id: Int): Boolean {
         var storeId = -1090
         val db = this.readableDatabase
-        val queryParam = "SELECT * FROM " + Staticated.TABLE_NAME + " WHERE SongID = '$id'"
+        val queryParam = "SELECT * FROM " + Staticated.TABLE_NAME + " WHERE SongID ='$id'"
         val cSor = db.rawQuery(queryParam, null)
         if (cSor.moveToFirst()) {
             do {

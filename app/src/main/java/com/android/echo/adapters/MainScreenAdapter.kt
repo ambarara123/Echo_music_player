@@ -60,6 +60,7 @@ class MainScreenAdapter(_songDetail: ArrayList<Songs>, _context: Context) : Recy
             songPlayingFragment.arguments = args
             (context as FragmentActivity).supportFragmentManager.beginTransaction()
                     .replace(R.id.detail_fragment, songPlayingFragment)
+                    .addToBackStack("SongPlayingFragment")
                     .commit()
 
         })

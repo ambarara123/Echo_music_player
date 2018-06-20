@@ -60,6 +60,7 @@ class FavouriteAdapter(_songDetail: ArrayList<Songs>, _context: Context) : Recyc
             songPlayingFragment.arguments = args
             (context as FragmentActivity).supportFragmentManager.beginTransaction()
                     .replace(R.id.detail_fragment, songPlayingFragment)
+                    .addToBackStack("FavouriteFragment")
                     .commit()
 
         })
