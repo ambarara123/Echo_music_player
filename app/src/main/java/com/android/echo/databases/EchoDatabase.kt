@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import com.android.echo.Songs
 
 
@@ -67,16 +68,21 @@ class EchoDatabase : SQLiteOpenHelper {
                     var songPath = cSor.getString(cSor.getColumnIndexOrThrow(Staticated.COLUMN_SONG_PATH))
                     songList?.add(Songs(id.toLong(), songTitle, songArtist, songPath, 0))
 
+
                 } while (cSor.moveToNext())
             } else {
                 return null
+
             }
 
         } catch (e: Exception) {
             e.printStackTrace()
+
         }
 
         return songList
+        Log.d("DATA", songList?.size.toString())
+
     }
 
     fun checkIfIdExist(id: Int): Boolean {
@@ -95,12 +101,29 @@ class EchoDatabase : SQLiteOpenHelper {
         }
         return storeId != -1090
 
+
     }
 
     fun deleteFavourite(id: Int?) {
         val db = this.writableDatabase
         db.delete(Staticated.TABLE_NAME, Staticated.COLUMN_ID + "=" + id, null)
         db.close()
+    }
+
+    fun checkSize(): Int {
+        var counter = 0
+        val db = this.readableDatabase
+        var queryParam = "SELECT * FROM " + Staticated.TABLE_NAME
+        var cSor = db.rawQuery(queryParam, null)
+        if (cSor.moveToFirst()) {
+            do {
+                counter = counter + 1
+            } while (cSor.moveToNext())
+        } else {
+            return 0
+        }
+        return counter
+
     }
 }
 

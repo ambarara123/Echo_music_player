@@ -73,7 +73,7 @@ class RecyclerAdapter(contentList: ArrayList<String>, getImage: IntArray, contex
                         .replace(R.id.detail_fragment,settingFragment)
                         .commit()
 
-            }else{
+            } else if (position == 3) {
                 var aboutUsFragment = AboutUsFragment()
                 ( context as MainActivity).supportFragmentManager.beginTransaction()
                         .replace(R.id.detail_fragment,aboutUsFragment)

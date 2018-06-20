@@ -3,7 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="always"
+        android:icon="@drawable/sort_icon">
+        <menu>
+            <item
+                android:id="@+id/action_sort_recent"
+                android:title="By recently added" />
+            <item
+                android:id="@+id/action_sort_ascending"
+                android:title="By name" />
+
+        </menu>
+    </item>
 </menu>

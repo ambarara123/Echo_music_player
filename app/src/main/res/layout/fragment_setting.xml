@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="#ffffff"
+    android:paddingTop="11dp"
+    android:orientation="vertical"
+    tools:context=".fragments.SettingFragment">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shakeToChange"
+        android:textColor="#212121"
+        android:textSize="21sp"
+        android:text="Shake to change song"
+        android:layout_marginLeft="20dp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shakeSwitch"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#212121"
+        android:layout_marginRight="15dp" />
+    <!-- <view
+         android:layout_width="match_parent"
+         android:layout_height="0.4dp"
+         android:background= "#bdbdbd"
+         android:layout_below="@+id/shakeToChange"
+         android:layout_margin="20dp"
+
+         />-->
+</RelativeLayout>
