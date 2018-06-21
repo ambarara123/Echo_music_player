@@ -25,12 +25,14 @@
         android:layout_alignParentRight="true"
         android:backgroundTint="#212121"
         android:layout_marginRight="15dp" />
-    <!-- <view
+
+    <View
          android:layout_width="match_parent"
          android:layout_height="0.4dp"
          android:background= "#bdbdbd"
          android:layout_below="@+id/shakeToChange"
          android:layout_margin="20dp"
 
-         />-->
+        />
+
 </RelativeLayout>
