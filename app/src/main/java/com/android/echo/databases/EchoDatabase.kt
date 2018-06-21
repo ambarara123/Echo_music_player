@@ -57,6 +57,7 @@ class EchoDatabase : SQLiteOpenHelper {
     }
 
     fun queryDbList(): ArrayList<Songs>? {
+        songList = ArrayList<Songs>()
 
         try {
 

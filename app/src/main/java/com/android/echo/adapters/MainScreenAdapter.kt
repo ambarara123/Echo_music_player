@@ -58,6 +58,15 @@ class MainScreenAdapter(_songDetail: ArrayList<Songs>, _context: Context) : Recy
             args.putInt("position", position)
             args.putParcelableArrayList("songData", arrayList)
             songPlayingFragment.arguments = args
+            try {
+                if (SongPlayingFragment.Statified.mediaPlayer?.isPlaying as Boolean) {
+                    SongPlayingFragment.Statified.mediaPlayer?.stop()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+
             (context as FragmentActivity).supportFragmentManager.beginTransaction()
                     .replace(R.id.detail_fragment, songPlayingFragment)
                     .addToBackStack("SongPlayingFragment")

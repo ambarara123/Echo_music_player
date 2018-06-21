@@ -65,18 +65,21 @@ class RecyclerAdapter(contentList: ArrayList<String>, getImage: IntArray, contex
                 var favourateFragment = FavourateFragment()
                 ( context as MainActivity).supportFragmentManager.beginTransaction()
                         .replace(R.id.detail_fragment,favourateFragment)
+                        .addToBackStack("favourite")
                         .commit()
 
             }else if (position == 2){
                 var settingFragment = SettingFragment()
                 ( context as MainActivity).supportFragmentManager.beginTransaction()
                         .replace(R.id.detail_fragment,settingFragment)
+                        .addToBackStack("setting")
                         .commit()
 
             } else if (position == 3) {
                 var aboutUsFragment = AboutUsFragment()
                 ( context as MainActivity).supportFragmentManager.beginTransaction()
                         .replace(R.id.detail_fragment,aboutUsFragment)
+                        .addToBackStack("about")
                         .commit()
             }
             MainActivity.Statified.drawerLayout?.closeDrawers()
